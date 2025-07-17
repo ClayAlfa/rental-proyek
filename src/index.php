@@ -41,35 +41,48 @@ if (!$vehicles) {
 ?>
 
 <!-- =================== HERO =================== -->
-<section class="hero position-relative overflow-hidden py-5 text-dark">
-  <div class="bg-blur bg-primary"></div>
-  <div class="bg-blur bg-purple"></div>
+<section class="hero">
   <div class="container position-relative">
-    <div class="row align-items-center g-5">
+    <div class="row align-items-center g-5 hero-content">
       <div class="col-lg-6">
-        <h1 class="fw-bold display-4 mb-3">
-          Sewa <span class="text-gradient">Mobil</span><br>Terpercaya &amp; Terjangkau
+        <h1 class="hero-title animate-fade-in-up">
+          Sewa <span style="color: #ffd700;">Kendaraan</span><br>Modern & Terpercaya
         </h1>
-        <p class="lead">Dapatkan kendaraan berkualitas dengan harga terbaik.</p>
+        <p class="hero-subtitle animate-fade-in-up">Dapatkan kendaraan berkualitas dengan teknologi booking terdepan dan layanan premium untuk perjalanan terbaik Anda.</p>
 
-        <a href="#vehicles" class="btn btn-lg btn-gradient me-2">Mulai Sewa Mobil</a>
-        <a href="vehicles.php" class="btn btn-outline-secondary btn-lg">Lihat Katalog</a>
+        <div class="animate-fade-in-up">
+          <a href="#vehicles" class="btn btn-lg btn-gradient me-3">🚗 Mulai Sewa Sekarang</a>
+          <a href="vehicles.php" class="btn btn-lg" style="background: rgba(255,255,255,0.2); color: white; backdrop-filter: blur(10px);">📋 Lihat Katalog</a>
+        </div>
 
-        <div class="d-flex gap-5 fw-semibold mt-4">
-          <div><span class="fs-3">500+</span><br>Mobil Tersedia</div>
-          <div><span class="fs-3">1000+</span><br>Pelanggan Puas</div>
-          <div><span class="fs-3">24/7</span><br>Layanan</div>
+        <div class="d-flex gap-5 fw-semibold mt-5 animate-fade-in-up" style="color: rgba(255,255,255,0.9);">
+          <div class="text-center">
+            <div class="fs-2 fw-bold" style="color: #ffd700;">500+</div>
+            <div class="small">Kendaraan Tersedia</div>
+          </div>
+          <div class="text-center">
+            <div class="fs-2 fw-bold" style="color: #ffd700;">1000+</div>
+            <div class="small">Pelanggan Puas</div>
+          </div>
+          <div class="text-center">
+            <div class="fs-2 fw-bold" style="color: #ffd700;">24/7</div>
+            <div class="small">Layanan Support</div>
+          </div>
         </div>
       </div>
 
       <!-- kartu booking -->
       <div class="col-lg-6 text-lg-end">
-        <div class="booking-card shadow-lg">
+        <div class="booking-card animate-pulse">
           <img src="https://images.unsplash.com/photo-1493238792000-8113da705763"
-               class="img-fluid rounded" alt="SUV">
-          <div class="p-3">
-            <h5 class="mb-1">Booking Instan</h5>
-            <small class="text-muted">Pesan mobil hanya 3 menit</small>
+               class="img-fluid" alt="SUV" style="height: 200px; object-fit: cover; width: 100%;">
+          <div class="p-4">
+            <h5 class="mb-2 fw-bold">⚡ Booking Instan</h5>
+            <p class="text-muted mb-3">Pesan kendaraan hanya dalam 3 menit dengan teknologi AI</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge" style="background: var(--success-gradient); color: white;">✓ Tersedia</span>
+              <small class="text-success fw-bold">Mulai 100rb/hari</small>
+            </div>
           </div>
         </div>
       </div>
@@ -78,47 +91,88 @@ if (!$vehicles) {
 </section>
 
 <!-- === FILTER KATEGORI BARU === -->
-<div class="d-flex flex-wrap justify-content-center gap-2 my-3">
-  <a href="index.php?type=all#vehicles"
-     class="btn btn-outline-secondary <?= $type==='all' ? 'active' : ''; ?>">Semua</a>
+<div class="container">
+  <div class="filter-tabs justify-content-center">
+    <a href="index.php?type=all#vehicles" class="filter-tab <?= $type==='all' ? 'active' : ''; ?>">
+      🏠 Semua Kendaraan
+    </a>
 
-  <a href="index.php?type=Mobil#vehicles"
-     class="btn btn-outline-secondary <?= $type==='Mobil' ? 'active' : ''; ?>">Mobil</a>
+    <a href="index.php?type=Mobil#vehicles" class="filter-tab <?= $type==='Mobil' ? 'active' : ''; ?>">
+      🚗 Mobil Premium
+    </a>
 
-  <a href="index.php?type=Motor#vehicles"
-     class="btn btn-outline-secondary <?= $type==='Motor' ? 'active' : ''; ?>">Motor</a>
+    <a href="index.php?type=Motor#vehicles" class="filter-tab <?= $type==='Motor' ? 'active' : ''; ?>">
+      🏍️ Motor Sport
+    </a>
 
-  <a href="index.php?type=Sepeda Listrik#vehicles"
-     class="btn btn-outline-secondary <?= $type==='Sepeda Listrik' ? 'active' : ''; ?>">E‑Bike</a>
+    <a href="index.php?type=Sepeda Listrik#vehicles" class="filter-tab <?= $type==='Sepeda Listrik' ? 'active' : ''; ?>">
+      ⚡ E-Bike Eco
+    </a>
+  </div>
 </div>
 
 <!-- =================== LIST KENDARAAN =================== -->
 <section id="vehicles" class="py-5">
   <div class="container">
-    <h2 class="fw-bold text-center mb-4">Pilihan Kendaraan</h2>
+    <div class="text-center mb-5">
+      <h2 class="fw-bold mb-3" style="font-size: 2.5rem; color: #2d3748;">Pilihan Kendaraan Premium</h2>
+      <p class="text-muted fs-5">Temukan kendaraan yang sempurna untuk setiap perjalanan Anda</p>
+    </div>
     <div class="row g-4" id="catalog">
       <?php foreach ($vehicles as $v): ?>
       <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <img src="<?= h($v['image'] ?: 'https://placehold.co/600x400'); ?>"
-               class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title"><?= h($v['brand'].' '.$v['model']); ?></h5>
-            <p class="fw-bold text-gradient fs-5 mb-2">
-              Rp <?= number_format($v['price_per_day'],0,',','.'); ?>/hari
-            </p>
-            <ul class="list-unstyled small mb-3">
-              <li><?= h($v['seats']); ?> Penumpang</li>
-              <li><?= h($v['transmission']); ?>, <?= h($v['fuel']); ?></li>
-            </ul>
+        <?php 
+        $vehicleType = strtolower($v['type_name'] ?? 'car');
+        $typeClass = match($vehicleType) {
+          'mobil' => 'car',
+          'motor' => 'motorcycle', 
+          'sepeda listrik' => 'ebike',
+          default => 'car'
+        };
+        $typeIcon = match($vehicleType) {
+          'mobil' => '🚗',
+          'motor' => '🏍️',
+          'sepeda listrik' => '⚡',
+          default => '🚗'
+        };
+        ?>
+        <div class="card-vehicle <?= $typeClass ?> h-100 animate-fade-in-up">
+          <div class="vehicle-image-container">
+            <img src="<?= h($v['image'] ?: 'https://placehold.co/600x400'); ?>" 
+                 class="vehicle-image" alt="<?= h($v['brand'].' '.$v['model']); ?>">
+            <div class="vehicle-badge <?= $typeClass ?>">
+              <?= $typeIcon ?> <?= h($v['type_name'] ?? 'Kendaraan'); ?>
+            </div>
+          </div>
+          
+          <div class="vehicle-info">
+            <h5 class="vehicle-title"><?= h($v['brand'].' '.$v['model']); ?></h5>
+            <div class="vehicle-price">
+              <?= rupiah($v['price_per_day']); ?>/hari
+            </div>
+            
+            <div class="vehicle-specs">
+              <div class="spec-item">
+                <i class="bi bi-people"></i>
+                <?= h($v['seats']); ?> Penumpang
+              </div>
+              <div class="spec-item">
+                <i class="bi bi-gear"></i>
+                <?= h($v['transmission']); ?>
+              </div>
+              <div class="spec-item">
+                <i class="bi bi-fuel-pump"></i>
+                <?= h($v['fuel']); ?>
+              </div>
+            </div>
 
             <?php if (isset($_SESSION['user'])): ?>
-              <a href="booking.php?vid=<?= $v['id']; ?>" class="btn btn-gradient w-100">
-                Sewa Sekarang
+              <a href="booking.php?vid=<?= $v['id']; ?>" class="btn btn-<?= $typeClass ?> w-100">
+                <i class="bi bi-lightning"></i> Sewa Sekarang
               </a>
             <?php else: ?>
-              <a href="login.php" class="btn btn-gradient w-100">
-                Login untuk Sewa
+              <a href="login.php" class="btn btn-<?= $typeClass ?> w-100">
+                <i class="bi bi-box-arrow-in-right"></i> Login untuk Sewa
               </a>
             <?php endif; ?>
           </div>
@@ -126,6 +180,14 @@ if (!$vehicles) {
       </div>
       <?php endforeach; ?>
     </div>
+    
+    <?php if (empty($vehicles)): ?>
+      <div class="text-center py-5">
+        <div class="mb-4" style="font-size: 4rem;">🚗</div>
+        <h4 class="text-muted">Belum ada kendaraan tersedia</h4>
+        <p class="text-muted">Kendaraan akan segera hadir untuk melayani perjalanan Anda</p>
+      </div>
+    <?php endif; ?>
   </div>
 </section>
 

@@ -67,45 +67,81 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include_once __DIR__.'/includes/header.php';
 ?>
 <div class="container py-5" style="max-width: 600px;">
-  <h2 class="fw-bold mb-4">Sewa <?= h($vehicle['brand'].' '.$vehicle['model']); ?></h2>
+  <div class="text-center mb-4">
+    <h2 class="fw-bold mb-3">🚗 Sewa <?= h($vehicle['brand'].' '.$vehicle['model']); ?></h2>
+    <p class="text-muted">Lengkapi form booking untuk melanjutkan penyewaan</p>
+  </div>
 
   <?php if ($success): ?>
-    <div class="alert alert-success"><?= h($success); ?></div>
-    <a href="index.php" class="btn btn-gradient">Kembali ke Beranda</a>
+    <div class="alert alert-success">
+      <i class="bi bi-check-circle me-2"></i><?= h($success); ?>
+    </div>
+    <div class="text-center">
+      <a href="index.php" class="btn btn-gradient btn-lg">🏠 Kembali ke Beranda</a>
+    </div>
     <meta http-equiv="refresh" content="5;url=index.php">
   <?php else: ?>
 
     <?php if ($error): ?>
-      <div class="alert alert-danger"><?= h($error); ?></div>
+      <div class="alert alert-danger">
+        <i class="bi bi-exclamation-triangle me-2"></i><?= h($error); ?>
+      </div>
     <?php endif; ?>
 
-    <div class="card card-body shadow-sm">
+    <div class="card">
+      <div class="card-body p-4">
       <!-- Info kendaraan -->
-      <ul class="list-unstyled mb-4 small">
-        <li><strong>Merk:</strong> <?= h($vehicle['brand']); ?></li>
-        <li><strong>Model:</strong> <?= h($vehicle['model']); ?></li>
-        <li><strong>Harga per hari:</strong> Rp <?= number_format($vehicle['price_per_day'], 0, ',', '.'); ?></li>
-        <li><strong>Kapasitas:</strong> <?= h($vehicle['seats']); ?> orang</li>
-        <li><strong>Transmisi:</strong> <?= h($vehicle['transmission']); ?></li>
-        <li><strong>Bahan Bakar:</strong> <?= h($vehicle['fuel']); ?></li>
-      </ul>
+        <div class="vehicle-specs mb-4">
+          <div class="spec-item">
+            <i class="bi bi-car-front"></i>
+            <strong>Merk:</strong> <?= h($vehicle['brand']); ?>
+          </div>
+          <div class="spec-item">
+            <i class="bi bi-tag"></i>
+            <strong>Model:</strong> <?= h($vehicle['model']); ?>
+          </div>
+          <div class="spec-item">
+            <i class="bi bi-currency-dollar"></i>
+            <strong>Harga:</strong> <?= rupiah($vehicle['price_per_day']); ?>/hari
+          </div>
+          <div class="spec-item">
+            <i class="bi bi-people"></i>
+            <strong>Kapasitas:</strong> <?= h($vehicle['seats']); ?> orang
+          </div>
+          <div class="spec-item">
+            <i class="bi bi-gear"></i>
+            <strong>Transmisi:</strong> <?= h($vehicle['transmission']); ?>
+          </div>
+          <div class="spec-item">
+            <i class="bi bi-fuel-pump"></i>
+            <strong>Bahan Bakar:</strong> <?= h($vehicle['fuel']); ?>
+          </div>
+        </div>
 
       <!-- Form Booking -->
       <form method="POST">
         <div class="mb-3">
-          <label class="form-label">Tanggal Mulai</label>
+          <label class="form-label fw-semibold">📅 Tanggal Mulai Sewa</label>
           <input type="date" name="rent_date" class="form-control" required id="rent-date">
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Tanggal Kembali</label>
+          <label class="form-label fw-semibold">📅 Tanggal Kembali</label>
           <input type="date" name="return_date" class="form-control" required id="return-date">
         </div>
 
-        <p><strong>Estimasi Total:</strong> <span id="estimation">-</span></p>
+        <div class="alert alert-info">
+          <div class="d-flex justify-content-between align-items-center">
+            <strong>💰 Estimasi Total Biaya:</strong>
+            <span id="estimation" class="fs-5 fw-bold text-primary">-</span>
+          </div>
+        </div>
 
-        <button class="btn btn-gradient w-100">Konfirmasi Sewa</button>
+        <button class="btn btn-gradient w-100 btn-lg">
+          <i class="bi bi-check-circle me-2"></i>Konfirmasi Sewa Sekarang
+        </button>
       </form>
+      </div>
     </div>
 
   <?php endif; ?>
@@ -123,7 +159,7 @@ include_once __DIR__.'/includes/header.php';
     if (rentInput.value && returnInput.value && end > start) {
       const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
       const total = days * pricePerDay;
-      output.innerText = 'Rp ' + total.toLocaleString('id-ID');
+      output.innerHTML = '<i class="bi bi-currency-dollar me-1"></i>Rp ' + total.toLocaleString('id-ID') + ' <small class="text-muted">(' + days + ' hari)</small>';
     } else {
       output.innerText = '-';
     }
