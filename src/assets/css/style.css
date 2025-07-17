@@ -1,0 +1,156 @@
+/* === GRADIENT TEKS & TOMBOL === */
+.text-gradient,
+.btn-gradient {
+  background: linear-gradient(90deg, #5936ff, #a31ff3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #5936ff, #a31ff3) !important;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  border: none;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* === HERO SECTION === */
+.hero {
+  background: #f5f7ff;
+}
+
+.bg-blur {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+}
+
+.bg-blur.bg-primary {
+  top: -80px;
+  left: -80px;
+  background: #4a2fff;
+}
+
+.bg-blur.bg-purple {
+  bottom: -80px;
+  right: -80px;
+  background: #c438ff;
+}
+
+/* === KARTU BOOKING LANDING PAGE === */
+.booking-card {
+  width: 320px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+}
+
+/* === ADMIN DASHBOARD STYLE === */
+.stat-card {
+  border-radius: 18px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.08);
+}
+
+.stat-card .icon-lg {
+  font-size: 1.8rem;
+  opacity: 0.65;
+  margin-right: 0.5rem;
+}
+
+.table thead th {
+  border-bottom: 2px solid #e9ecef;
+}
+
+/* === BADGE STATUS PENYEWAAN === */
+.badge-status {
+  padding: 0.45em 0.75em;
+  font-size: 0.75rem;
+  border-radius: 50rem;
+}
+
+.badge.booked {
+  background: #ffcb2c1a;
+  color: #c29400;
+}
+
+.badge.ongoing {
+  background: #1987541a;
+  color: #198754;
+}
+
+.badge.finished {
+  background: #0d6efd1a;
+  color: #0d6efd;
+}
+
+.badge.cancelled {
+  background: #dc35451a;
+  color: #dc3545;
+}
+
+/* === BADGE STATUS KENDARAAN === */
+.badge.Tersedia {
+  background: #0d6efd1a;
+  color: #0d6efd;
+}
+
+.badge.Disewa {
+  background: #ffc1071a;
+  color: #c08d00;
+}
+
+.badge.Servis {
+  background: #dc35451a;
+  color: #dc3545;
+}
+
+/* === FORM FOCUS STYLING === */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #a31ff3;
+  box-shadow: 0 0 0 0.2rem rgba(163, 31, 243, 0.2);
+  outline: none;
+}
+
+/* === PLACEHOLDER STYLING === */
+::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* === RESPONSIVE STAT CARD === */
+@media (max-width: 768px) {
+  .stat-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* === NAVBAR ACTIVE LINK (Optional) === */
+.nav-link.active {
+  font-weight: bold;
+  color: #5936ff !important;
+}
